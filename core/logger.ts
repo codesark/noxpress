@@ -68,7 +68,7 @@ const skip = () => {
 };
 
 export const Morgan = morgan(
-    ":method :status :url :res[content-length] - :response-time ms",
+    ":method :status :url - :res[content-length] bytes - :response-time ms",
     { stream, skip }
 );
 
