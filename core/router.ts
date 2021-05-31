@@ -9,7 +9,7 @@ router.use('/account', AccountRoutes)
 
 
 router.get('/', (req, res) => {
-    res.send("Working");
+    res.render('index', { site_title: 'Noxpress'});
 });
 
 export default router;
