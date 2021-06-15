@@ -1,5 +1,9 @@
 import express from 'express';
 
+export function generateOtp (req: express.Request, res: express.Response ): any {
+    res.send("Generate OTP")
+}
+
 export function signUp (req: express.Request, res: express.Response ): any {
     res.send("Sign UP")
 }
