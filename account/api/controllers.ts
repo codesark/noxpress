@@ -15,4 +15,3 @@ export function signIn (req: express.Request, res: express.Response ): any {
 export function signOut (req: express.Request, res: express.Response ): any {
     res.send("Sign OUT")
 }
-
