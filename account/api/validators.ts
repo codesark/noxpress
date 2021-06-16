@@ -30,8 +30,14 @@ export const validateGenerateOtp = [
 
     check('purpose')
         .if(check('otpType').equals('other'))
-        .notEmpty().withMessage('Purpose is Required')
+        .notEmpty().withMessage('Purpose is Required'),
 
+    (req: express.Request, res: express.Response, next: express.NextFunction): any => {
+        const errors = validationResult(req);
+        if (!errors.isEmpty())
+            return res.status(422).json({ errors: errors.array() });
+        next();
+    }
 ]
 
 export const validateSignUp = [

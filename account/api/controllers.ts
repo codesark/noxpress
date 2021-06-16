@@ -1,17 +1,19 @@
-import express from 'express';
+import { Request, Response } from 'express';
+import { User, Otp } from './models';
 
-export function generateOtp (req: express.Request, res: express.Response ): any {
+export function generateOtp (req: Request, res: Response ): any {
+    console.log(req.body)
     res.send("Generate OTP")
 }
 
-export function signUp (req: express.Request, res: express.Response ): any {
+export function signUp (req: Request, res: Response ): any {
     res.send("Sign UP")
 }
 
-export function signIn (req: express.Request, res: express.Response ): any {
+export function signIn (req: Request, res: Response ): any {
     res.send("Sign IN")
 }
 
-export function signOut (req: express.Request, res: express.Response ): any {
+export function signOut (req: Request, res: Response ): any {
     res.send("Sign OUT")
 }
