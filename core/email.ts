@@ -1,7 +1,9 @@
-export function sendEmail(from: string, to: string, message: string, htmlMessage?: string): any {
+import config from "./config";
+
+export function sendEmail(to: string, message: string, htmlMessage?: string): any {
     console.log(`
         ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++\n
-        Email Sent ------ from: ${from}, to: ${to}\n
+        Email Sent ------ from: ${config.EMAIL_HOST_USER}, to: ${to}\n
         ------------------------------------------------------------\n
         Message:\n 
         ${message}\n

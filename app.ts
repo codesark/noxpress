@@ -19,7 +19,12 @@ const app: express.Application = express();
 async function main() {
 
     // connect mongoose to database
-    await mongoose.connect(config.MONGODB_URL, { useNewUrlParser: true, useUnifiedTopology: true })
+    await mongoose.connect(config.MONGODB_URL, { 
+        useNewUrlParser: true, 
+        useUnifiedTopology: true, 
+        useFindAndModify: false, 
+        useCreateIndex: true
+    })
     console.log('⚡️[server]: Connected to mongodb.')
 
     // apply middlewares

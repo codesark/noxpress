@@ -10,11 +10,11 @@ function validatePhoneNumber(phone: string) {
 export const validateGenerateOtp = [
 
     check('otpType')
-        .notEmpty().withMessage('Required: auth | passwordReset | other ').bail()
-        .isIn(['auth', 'passwordReset', 'other']).withMessage('Invalid value: expected - auth | passwordReset | other'),
+        .notEmpty().withMessage('Required: signIn | signUp | passwordReset | other ').bail()
+        .isIn(['signIn', 'signUp', 'passwordReset', 'other']).withMessage('Invalid OTP Type'),
 
     check('authType')
-        .if(check('otpType').isIn(['auth', 'passwordReset']))
+        .if(check('otpType').isIn(['signIn', 'signUp', 'passwordReset']))
         .notEmpty().withMessage("Required: emailAddress | phoneNumber").bail()
         .isIn(['emailAddress', 'phoneNumber']).withMessage("Invalid Value: expected - emailAddress | phoneNumber"),
 
