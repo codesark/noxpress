@@ -50,8 +50,8 @@ export const validateSignUp = [
     check('authType').trim().notEmpty().withMessage("Required: emailAddress | phoneNumber").bail()
         .isIn(['emailAddress', 'phoneNumber']).withMessage("Invalid Value: expected - emailAddress | phoneNumber"),
 
-    check('authVia').trim().notEmpty().withMessage("Required: password | otp").bail()
-        .isIn(['password', 'otp']).withMessage("Invalid Value: expected - password | otp"),
+    // check('authVia').trim().notEmpty().withMessage("Required: password | otp").bail()
+    //     .isIn(['password', 'otp']).withMessage("Invalid Value: expected - password | otp"),
 
     // advanced validation for optional fields
 
@@ -72,11 +72,10 @@ export const validateSignUp = [
         .isLength({ max: 100 }).withMessage('Password too long.'),
 
     check('otpId')
-        .if(check('authVia').equals('otp'))
-        .notEmpty().withMessage('OTP ID is required'),
+        .notEmpty().withMessage('OTP ID is required').bail()
+        .isLength({max: 50}).withMessage('OTP ID too long'),
 
     check('otpValue')
-        .if(check('authVia').equals('otp'))
         .notEmpty().withMessage('OTP is required').bail()
         .isLength({ max: 10 }).withMessage('OTP too long.'),
 

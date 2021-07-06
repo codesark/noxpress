@@ -13,5 +13,7 @@ router.post('/signin',  validator.validateSignIn,  controller.signIn);
 router.post('/signup',  validator.validateSignUp,  controller.signUp);
 router.post('/signout', validator.validateSignOut, controller.signOut);
 
+router.post('/checkUserStatus', controller.checkUserStatus);
+
 export { router as AccountRoutes };
 

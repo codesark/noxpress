@@ -12,6 +12,7 @@ export interface UserDoc extends Document {
     username: string,
     emailAddress: string,
     phoneNumber: string,
+    password: string,
     firstName: string,
     lastName: string,
     gender: string,
@@ -42,6 +43,10 @@ const userSchema = new Schema<UserDoc>({
         type: String,
         index: true,
     },
+
+    password: {
+        type: String
+    }
 
     firstName: {
         type: String,

@@ -5,9 +5,9 @@ import path from 'path';
 import cors from 'cors';
 import helmet from 'helmet';
 import mongoose from 'mongoose';
-import session from 'express-session';
 import MongoStore from 'connect-mongo';
 
+import session from './core/session';
 import logger from './core/logger';
 import router from './core/router';
 

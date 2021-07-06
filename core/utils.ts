@@ -1,3 +1,4 @@
+import bcrypt from 'bcrypt';
 
 export function msToTime(ms: number): string {
     const d = new Date(1000*Math.round(ms/1000)); // round to nearest second
@@ -20,4 +21,14 @@ export function generateRandomNumber(length: number): string {
     const min    = max/10; // Math.pow(10, n) basically
     const number = Math.floor( Math.random() * (max - min + 1) ) + min;
     return ("" + number).substring(add); 
+}
+
+export function hashPassword(password: string): string {
+    const saltRounds = 10;
+    const hashedPassword = bcrypt.hashSync(password, saltRounds);
+    return hashedPassword;
+}
+
+export function comparePassword(plainPassword: string, hash: string): boolean {
+    return bcrypt.compareSync(plainPassword, hash);
 }

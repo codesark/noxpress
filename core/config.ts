@@ -18,7 +18,7 @@ export default {
     SMS_SENDER_ID       : process.env.SMS_SNEDER_ID                         || 'paisapaisa',
     SMS_ROUTE           : parseInt(<string>process.env.SMS_ROUTE)           || 5,
     OTP_LENGTH          : parseInt(<string>process.env.OTP_LENGTH)          || 5,
-    OTP_EXPIRE          : parseInt(<string>process.env.OTP_EXPIRE)          || 1*60*1000,  // 5 minutes in ms
-    OTP_MAX_RETRIES     : parseInt(<string>process.env.OTP_MAX_RETRIES)     || 2,
-    OTP_RETRIES_COOLDOWN: parseInt(<string>process.env.OTP_RETRIES_COOLDOWN)|| 10*60*1000, //10 minutes in ms
+    OTP_EXPIRE          : parseInt(<string>process.env.OTP_EXPIRE)          || 5*60*1000,  // 5 minutes in ms
+    OTP_MAX_RETRIES     : parseInt(<string>process.env.OTP_MAX_RETRIES)     || 2, // TODO: implementation pending
+    OTP_RETRIES_COOLDOWN: parseInt(<string>process.env.OTP_RETRIES_COOLDOWN)|| 10*60*1000, //TODO: implementation pending
 }
