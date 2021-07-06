@@ -214,8 +214,8 @@ export async function signIn(req: Request, res: Response): Promise<any> {
                 return res.status(401).json({status: 'failed', error: 'Invalid Credentials'});
             } else {
                 // login user
+                req.session.isAuthenticated = true;
                 req.session.user = user;
-                req.session.user.isAuthenticated = true;
                 
                 return res.json({status: true, user: {
                     id: user.id,
@@ -232,7 +232,7 @@ export async function signIn(req: Request, res: Response): Promise<any> {
 }
 
 export function signOut(req: Request, res: Response): any {
-    req.session.user.isAuthenticated = false;
+    req.session.isAuthenticated = false;
     return res.json({status: 'success'})
 }
 
@@ -241,5 +241,5 @@ export function passwordReset(req: Request, res: Response): any {
 }
 
 export function checkUserStatus(req: Request, res: Response): any {
-    return res.json({status: req.session.user.isAuthenticated})
+    return res.json({status: req.session.isAuthenticated})
 }

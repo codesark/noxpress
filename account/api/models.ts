@@ -46,7 +46,7 @@ const userSchema = new Schema<UserDoc>({
 
     password: {
         type: String
-    }
+    },
 
     firstName: {
         type: String,
